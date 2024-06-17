@@ -1,0 +1,22 @@
+  
+ <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">CART</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+      <ol class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let product of cartList">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">{{ product.name }}</div>
+            {{ product.price | currency }}
+          </div>
+          <span class="badge text-primary rounded-pill fs-5">{{ product.quantity }}</span>
+          <button type="button" class="btn btn-outline-danger" (click)="removeFromCart(product)">Remove</button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Total
+          <span class="badge bg-primary rounded-pill fs-6">{{ getTotal() | currency }}</span>
+      </ol>
+    </div>
+  </div>
